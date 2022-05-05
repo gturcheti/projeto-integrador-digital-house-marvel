@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="8dp"
+    android:clickable="true"
+    android:id="@+id/heroi_recyler_item_cartao"
+    android:backgroundTint="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/heroi_recycler_item_nome_heroi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/rubik"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/heroi_recycler_item_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="HOMEM DE FERRO" />
+
+        <TextView
+            android:id="@+id/heroi_recycler_item_nome_personagem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/rubik"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/heroi_recycler_item_nome_heroi"
+            app:layout_constraintStart_toStartOf="@id/heroi_recycler_item_nome_heroi"
+            app:layout_constraintTop_toBottomOf="@id/heroi_recycler_item_nome_heroi"
+            tools:text="Tony Stark" />
+
+        <ImageView
+            android:id="@+id/heroi_recycler_item_img"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintBottom_toTopOf="@id/red_line"
+            app:layout_constraintEnd_toStartOf="@id/heroi_recycler_item_nome_heroi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ironcapa"/>
+
+        <ImageView
+            android:id="@+id/red_line"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/marvel_red"
+            app:layout_constraintTop_toBottomOf="@id/heroi_recycler_item_img"
+            app:layout_constraintStart_toStartOf="parent"            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
