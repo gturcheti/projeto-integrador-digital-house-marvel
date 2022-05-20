@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projetointegradordigitalhousemarvel">
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.HeroiListaActivity" />
-        <activity android:name=".ui.activities.HeroiActivity" />
+        <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.HeroiListaActivity" />
+        <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.HeroiActivity" />
+        <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.UsuarioCadastroActivity" />
+        <activity
+            android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.LoginActivity"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

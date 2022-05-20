@@ -11,10 +11,10 @@
     <Button
         android:id="@+id/main_activity_lista_heroi_btn"
         style="@style/Widget.App.Button"
-        android:clickable="true"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
+        android:clickable="true"
         android:fontFamily="@font/rubik"
         android:text="PERSONAGENS"
         android:textColor="@color/marvel_red"
@@ -25,5 +25,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767" />
+
+    <ImageButton
+        android:id="@+id/main_activity_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/transparent"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_login_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
