@@ -16,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "MARVEL_API_PUBLICKEY", MARVEL_API_PUBLICKEY)
+        buildConfigField("String", "MARVEL_API_PRIVATEKEY", MARVEL_API_PRIVATEKEY)
     }
 
     buildTypes {
@@ -34,6 +37,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'br.gturcheti.projeto_integrador_digital_house_marvel'
 }
 
 dependencies {
@@ -70,5 +74,26 @@ dependencies {
 
     //DataStore
     implementation "androidx.datastore:datastore-preferences:$datastore_version"
+
+    // Retrofit
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // OkHttp
+    def okHttpVersion = "4.9.3"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // Coroutines
+    def coroutinesVersion = "1.6.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.4.0'
 
 }

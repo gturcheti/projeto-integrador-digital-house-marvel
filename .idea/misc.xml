@@ -20,10 +20,20 @@
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_fragment_view_pager.xml" value="0.1796875" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_recycler_item.xml" value="0.5309352517985612" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/activity_gameplay.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/activity_lista_heroi.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/activity_login.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/gamecard_item.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/heroi_fragment_biografia.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/heroi_fragment_filmes.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/heroi_fragment_view_pager.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/layout/heroi_recycler_item.xml" value="0.2203125" />
+        <entry key="..\:/EstudosDH/projeto-integrador-digital-house-marvel/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2203125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
