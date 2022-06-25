@@ -7,7 +7,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://gateway.marvel.com/"
-//const val IMAGE_URL = "https://image.tmdb.org/t/p/original"
 
 private val interceptor = HttpLoggingInterceptor {
     Log.d("RETROFIT_CLIENT", it)

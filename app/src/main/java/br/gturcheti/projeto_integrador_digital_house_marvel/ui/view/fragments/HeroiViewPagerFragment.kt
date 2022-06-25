@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.viewpager.HeroiViewPagerAdapter
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters.HeroiViewPagerAdapter
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import com.google.android.material.tabs.TabLayout
 

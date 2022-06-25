@@ -1,36 +1,32 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
+import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.ActivityMainBinding
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
         setupListeners()
 
     }
 
     fun setupListeners() {
-        binding.mainActivityListaHeroiBtn.setOnClickListener{
+
+
+        findViewById<Button>(R.id.main_activity_lista_heroi_btn).setOnClickListener{
             vaiPara(HeroiListaActivity::class.java)
         }
 
-        binding.mainActivityLoginBtn.setOnClickListener {
+        findViewById<ImageButton>(R.id.main_activity_login_btn).setOnClickListener {
             vaiPara(LoginActivity::class.java)
         }
 

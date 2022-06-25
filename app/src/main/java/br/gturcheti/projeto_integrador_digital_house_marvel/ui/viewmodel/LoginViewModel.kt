@@ -11,7 +11,7 @@ import br.gturcheti.projeto_integrador_digital_house_marvel.database.dao.Usuario
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
 import kotlinx.coroutines.launch
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     private val _userLogged: MutableLiveData<Usuario> = MutableLiveData()
     val userLogged: LiveData<Usuario> = _userLogged

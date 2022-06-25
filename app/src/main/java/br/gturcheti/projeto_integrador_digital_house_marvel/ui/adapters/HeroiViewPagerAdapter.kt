@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.viewpager
+package br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

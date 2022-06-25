@@ -1,7 +1,6 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -9,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.edit
 import androidx.lifecycle.lifecycleScope
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
-import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toHash
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
