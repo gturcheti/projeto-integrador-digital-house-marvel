@@ -2,13 +2,15 @@ package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters.HeroiViewPagerAdapter
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.vo.HeroiVO
 import com.google.android.material.tabs.TabLayout
 
-class HeroiViewPagerFragment : Fragment(R.layout.heroi_fragment_view_pager) {
+class HeroiViewPagerFragment : Fragment(R.layout.fragment_heroi_view_pager) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,6 +34,11 @@ class HeroiViewPagerFragment : Fragment(R.layout.heroi_fragment_view_pager) {
 
     private fun configuraTabLayout(tabLayout: TabLayout, viewPager: ViewPager) {
         tabLayout.setupWithViewPager(viewPager)
+    }
+
+    companion object {
+        private const val TASK_KEY = "heroi"
+        fun buildBundle(heroi: HeroiVO) = bundleOf(TASK_KEY to heroi)
     }
 
 }

@@ -11,7 +11,7 @@ import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
-import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodel.LoginViewModel
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.LoginViewModel
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {

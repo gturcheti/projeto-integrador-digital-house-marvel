@@ -1,7 +1,6 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodel
+package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,16 +10,20 @@ import br.gturcheti.projeto_integrador_digital_house_marvel.database.dao.Usuario
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class UsuarioCadastroViewModel : ViewModel(){
 
-    private val _userLogged: MutableLiveData<Usuario> = MutableLiveData()
-    val userLogged: LiveData<Usuario> = _userLogged
+    private val _novoUsuario: MutableLiveData<Usuario> = MutableLiveData()
+    val novoUsuario: LiveData<Usuario> = _novoUsuario
 
-    fun autentica(context: Context, usuarioEmail: String, senha: String) {
+
+    fun criaUsuario(usuarioEmail: String, usuarioNome: String, senha: String) {
+        _novoUsuario.value = Usuario(usuarioEmail, usuarioNome, senha)
+    }
+
+    fun cadastraUsuario(context:Context) {
         viewModelScope.launch {
-            getDao(context).autentica(usuarioEmail, senha)?.let { usuarioAutenticado ->
-                _userLogged.value = usuarioAutenticado
-                Log.i("AUTENTICA", "$_userLogged")
+            _novoUsuario.value?.let { usuario ->
+                getDao(context).salva(usuario)
             }
         }
     }
@@ -28,5 +31,4 @@ class LoginViewModel : ViewModel() {
     private fun getDao(context: Context) : UsuarioDao {
         return AppDatabase.instancia(context).usuarioDao()
     }
-
 }

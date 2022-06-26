@@ -54,6 +54,7 @@ dependencies {
     def lifecycle_version = "2.4.1"
     def fragment_version = "1.4.1"
     def datastore_version = "1.0.0"
+    def nav_version = "2.4.2"
 
     // ROOM
     implementation "androidx.room:room-runtime:$room_version"
@@ -74,6 +75,16 @@ dependencies {
 
     //DataStore
     implementation "androidx.datastore:datastore-preferences:$datastore_version"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Feature module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     // Retrofit
     def retrofitVersion = "2.9.0"
@@ -96,4 +107,6 @@ dependencies {
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.4.0'
 
+    //Coil
+    implementation 'io.coil-kt:coil:2.1.0'
 }

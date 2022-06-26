@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/heroi_nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/heroiListaFragment">
+
+    <fragment
+        android:id="@+id/heroiViewPagerFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiViewPagerFragment"
+        android:label="HeroiViewPagerFragment"
+        tools:layout='@layout/fragment_heroi_view_pager'>
+        <action
+            android:id="@+id/action_heroiVP_to_heroiRV"
+            app:destination="@id/heroiListaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroiListaFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiListaFragment"
+        android:label="HeroiListaFragment"
+        tools:layout='@layout/fragment_heroi_recycler_view'>
+        <action
+            android:id="@+id/action_heroiRV_to_heroiVP"
+            app:destination="@id/heroiViewPagerFragment" />
+    </fragment>
+</navigation>

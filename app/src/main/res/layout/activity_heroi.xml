@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
-    android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiViewPagerFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_heroi_container"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.activities.HeroiActivity"
-    tools:layout="@layout/heroi_fragment_view_pager"/>
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/heroi_nav_graph"
+    tools:context=".ui.view.activities.HeroiActivity"/>

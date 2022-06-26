@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodel
+package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

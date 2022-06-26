@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
-import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodel.UsuarioCadastroViewModel
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.UsuarioCadastroViewModel
 
 class UsuarioCadastroActivity : AppCompatActivity(R.layout.activity_usuario_cadastro){
 
