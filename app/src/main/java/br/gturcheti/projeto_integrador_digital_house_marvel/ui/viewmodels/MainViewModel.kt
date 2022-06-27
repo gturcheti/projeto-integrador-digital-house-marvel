@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.dao.UsuarioDao
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao.UsuarioDao
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore

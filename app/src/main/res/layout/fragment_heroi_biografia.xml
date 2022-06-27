@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/heroi_fragment_nome_personagem"
-            android:text="Tony Stark"
+            android:text="Número ID"
             android:textSize="20sp"
             android:fontFamily="@font/rubik"
             android:textStyle="bold"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rubik"
-            android:text="HOMEM DE FERRO"
+            android:text="Nome do Heroi"
             android:textColor="@color/marvel_red"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
 
 
         <TextView
-            android:id="@+id/heroi_fragment_descrição"
+            android:id="@+id/heroi_fragment_descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BIOGRAFIA DO HEROI"

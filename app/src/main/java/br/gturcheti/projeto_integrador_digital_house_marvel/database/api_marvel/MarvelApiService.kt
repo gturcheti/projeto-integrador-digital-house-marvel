@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.data
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel
 
 import android.util.Log
 import okhttp3.OkHttpClient

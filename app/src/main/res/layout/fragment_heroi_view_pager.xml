@@ -10,7 +10,7 @@
         android:id="@+id/heroi_imagem_capa"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/ironcapa"/>
 
     <com.google.android.material.tabs.TabLayout

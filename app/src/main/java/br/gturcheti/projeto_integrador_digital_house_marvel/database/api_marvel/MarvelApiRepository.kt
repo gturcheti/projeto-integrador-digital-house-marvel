@@ -1,7 +1,7 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.data
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel
 
-import br.gturcheti.projeto_integrador_digital_house_marvel.data.HashGenerator.toHash
-import br.gturcheti.projeto_integrador_digital_house_marvel.data.dto.Response
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.HashGenerator.toHash
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

@@ -3,16 +3,13 @@ package br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.RecyclerItemHeroiBinding
+import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.tryToLoadImage
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.vo.HeroiVO
 
 class HeroiRecyclerViewAdapter(
-//    private val context: Context,
-//    herois: List<Heroi> = emptyList(),
-    var heroiItemListener: (heroi: HeroiVO) -> Unit = {}
+    private val onItemClicked: (heroi: HeroiVO) -> Unit
 ) : RecyclerView.Adapter<HeroiRecyclerViewAdapter.ViewHolder>() {
 
     private val herois: MutableList<HeroiVO> = mutableListOf()
@@ -21,23 +18,14 @@ class HeroiRecyclerViewAdapter(
         private val binding: RecyclerItemHeroiBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        lateinit var heroi: HeroiVO
-
-        init {
-            itemView.setOnClickListener {
-                if (::heroi.isInitialized) {
-                    heroiItemListener(heroi)
-                }
+        fun bind(heroi: HeroiVO) {
+            with(binding) {
+                heroiRecyclerItemNomeHeroi.text = heroi.name
+                Log.i("HEROY_RECYCLER_ITEM", "IMG_URL = ${heroi.image}")
+                heroiRecyclerItemImg.tryToLoadImage(heroi.image)
+                itemView.setOnClickListener { onItemClicked.invoke(heroi) }
             }
         }
-
-        fun bind (heroi: HeroiVO) {
-            binding.heroiRecyclerItemNomeHeroi.text = heroi.name
-            val imageView : ImageView = itemView.findViewById(R.id.heroi_recycler_item_img)
-            Log.i("HEROY_RECYCLER_ITEM", "IMG_URL = ${heroi.image}")
-        }
-
-
 
     }
 

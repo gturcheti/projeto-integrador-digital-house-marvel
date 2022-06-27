@@ -1,6 +1,7 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,8 +17,12 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
 
     private lateinit var binding: FragmentHeroiRecyclerViewBinding
     private val viewModel by viewModels<HeroiListaViewModel>()
+    private val heroiAdapter = HeroiRecyclerViewAdapter(::onItemClicked)
+    private val bundle: (heroi: HeroiVO) -> Bundle = { heroi ->
+        HeroiViewPagerFragment.buildBundle(heroi)
+        HeroiBiografiaFragment.buildBundle(heroi)
 
-    private val heroiAdapter = HeroiRecyclerViewAdapter()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,9 +35,6 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
         binding = FragmentHeroiRecyclerViewBinding.bind(requireView())
         with(binding) {
             rvHeroiLista.adapter = heroiAdapter
-            heroiAdapter.heroiItemListener = {
-                navigateToHeroiVP(it)
-            }
         }
     }
 
@@ -49,9 +51,8 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
     }
 
 
-    fun navigateToHeroiVP(heroi: HeroiVO) {
-        val bundle = HeroiViewPagerFragment.buildBundle(heroi)
-        findNavController().navigate(R.id.action_heroiVP_to_heroiRV, bundle)
+    fun onItemClicked(heroi: HeroiVO) {
+        findNavController().navigate(R.id.action_heroiRV_to_heroiVP, bundle(heroi))
     }
 
 }

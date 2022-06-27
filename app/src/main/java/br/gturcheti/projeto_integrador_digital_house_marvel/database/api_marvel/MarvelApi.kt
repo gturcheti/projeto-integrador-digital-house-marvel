@@ -1,9 +1,9 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.data
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel
 
 
 
 import br.gturcheti.projeto_integrador_digital_house_marvel.BuildConfig
-import br.gturcheti.projeto_integrador_digital_house_marvel.data.dto.Response
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.database.dao
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

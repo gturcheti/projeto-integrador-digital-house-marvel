@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.dao.UsuarioDao
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao.UsuarioDao
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
 
 

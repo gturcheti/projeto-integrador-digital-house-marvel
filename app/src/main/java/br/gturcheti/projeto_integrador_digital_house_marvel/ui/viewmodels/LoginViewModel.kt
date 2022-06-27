@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.dao.UsuarioDao
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao.UsuarioDao
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
 import kotlinx.coroutines.launch
 

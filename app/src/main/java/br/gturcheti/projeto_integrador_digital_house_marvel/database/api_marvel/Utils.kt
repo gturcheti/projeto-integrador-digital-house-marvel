@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.data
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel
 
 import br.gturcheti.projeto_integrador_digital_house_marvel.BuildConfig
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toMD5

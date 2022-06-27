@@ -1,4 +1,4 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.data.dto
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto
 
 import com.google.gson.annotations.SerializedName
 
