@@ -50,7 +50,6 @@ class HeroiBiografiaFragment : Fragment(R.layout.fragment_heroi_biografia) {
     private fun showContent(character: HeroiVO) {
         updateLoadingView(false)
         updateViews(character)
-        Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
     }
 
     private fun updateViews(character: HeroiVO) {
@@ -76,7 +75,6 @@ class HeroiBiografiaFragment : Fragment(R.layout.fragment_heroi_biografia) {
 
     companion object {
         fun criar(): HeroiBiografiaFragment = HeroiBiografiaFragment()
-
     }
 
 }

@@ -10,9 +10,7 @@
         android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiViewPagerFragment"
         android:label="HeroiViewPagerFragment"
         tools:layout='@layout/fragment_heroi_view_pager'>
-        <action
-            android:id="@+id/action_heroiVP_to_heroiRV"
-            app:destination="@id/heroiListaFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/heroiListaFragment"

@@ -58,13 +58,13 @@ class HeroiViewPagerFragment : Fragment(R.layout.fragment_heroi_view_pager) {
 
     private fun configuraTabLayout() {
         binding.heroiTabLayout.setupWithViewPager(
-            binding.heroiViewPager)
+            binding.heroiViewPager
+        )
     }
 
-
-    private fun showContent(character : HeroiVO) {
+    private fun showContent(character: HeroiVO) {
         updateLoadingView(false)
-        binding.heroiImagemCapa.tryToLoadImage(character.image)
+        updateViews(character)
     }
 
     private fun showError() {
@@ -74,6 +74,11 @@ class HeroiViewPagerFragment : Fragment(R.layout.fragment_heroi_view_pager) {
 
     private fun showLoading() {
         updateLoadingView(true)
+    }
+
+    private fun updateViews(character: HeroiVO) {
+        binding.heroiImagemCapa.tryToLoadImage(character.image)
+
     }
 
     private fun updateLoadingView(isLoadingVisible: Boolean) {

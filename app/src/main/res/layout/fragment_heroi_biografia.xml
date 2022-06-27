@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rubik"
-            android:text="Nome do Heroi"
+            tools:text="Nome do Heroi"
             android:textColor="@color/marvel_red"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -30,7 +30,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/rubik"
-            android:text="BIOGRAFIA DO HEROI"
+            tools:text="BIOGRAFIA DO HEROI"
             android:textColor="@color/gray"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,8 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
