@@ -18,12 +18,12 @@ class HeroiRecyclerViewAdapter(
         private val binding: RecyclerItemHeroiBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(heroi: HeroiVO) {
+        fun bind(character: HeroiVO) {
             with(binding) {
-                heroiRecyclerItemNomeHeroi.text = heroi.name
-                Log.i("HEROY_RECYCLER_ITEM", "IMG_URL = ${heroi.image}")
-                heroiRecyclerItemImg.tryToLoadImage(heroi.image)
-                itemView.setOnClickListener { onItemClicked.invoke(heroi) }
+                heroiRecyclerItemNomeHeroi.text = character.name
+                Log.i("HEROY_RECYCLER_ITEM", "IMG_URL = ${character.image}")
+                heroiRecyclerItemImg.tryToLoadImage(character.image)
+                itemView.setOnClickListener { onItemClicked.invoke(character) }
             }
         }
 

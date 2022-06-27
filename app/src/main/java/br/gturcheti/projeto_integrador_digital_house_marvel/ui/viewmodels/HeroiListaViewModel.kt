@@ -14,26 +14,26 @@ class HeroiListaViewModel : ViewModel() {
 
     private val repository: MarvelApiRepository = MarvelApiRepository()
 
-    private val _herois: MutableLiveData<Result<List<HeroiVO>>> = MutableLiveData()
-    val herois: LiveData<Result<List<HeroiVO>>> = _herois
+    private val _heroItem: MutableLiveData<Result<List<HeroiVO>>> = MutableLiveData()
+    val heroItem: LiveData<Result<List<HeroiVO>>> = _heroItem
 
     fun fetchHerois() {
-        _herois.value = Result.Loading
+        _heroItem.value = Result.Loading
 
         viewModelScope.launch {
             try {
-                val response = repository.fetchCharactersList("")
+                val response = repository.fetchCharactersList("100", "0")
                 val vo = response.data.results.map { heroiDTO ->
                     HeroiVO(
-                        id = heroiDTO.id,
+                        id = heroiDTO.id.toString(),
                         name = heroiDTO.name,
                         description = heroiDTO.description,
                         image = "${heroiDTO.image.path.toHttps()}/" + "standard_fantastic" + ".${heroiDTO.image.extension}"
                     )
                 }
-                _herois.value = Result.Success(vo)
+                _heroItem.value = Result.Success(vo)
             } catch (ex: HttpException) {
-                _herois.value = Result.Error
+                _heroItem.value = Result.Error
             }
         }
     }

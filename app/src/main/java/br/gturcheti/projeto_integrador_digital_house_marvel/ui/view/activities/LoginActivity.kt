@@ -9,7 +9,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.lifecycle.lifecycleScope
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore
+import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.userDataStore
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.LoginViewModel
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         viewModel.userLogged.observe(this) { usuarioLogado ->
             usuarioLogado?.let {
                 lifecycleScope.launch {
-                    dataStore.edit { preferences ->
+                    userDataStore.edit { preferences ->
                         preferences[usuarioLogadoPreferences] = usuarioLogado.email
                         vaiPara(MainActivity::class.java)
                         finish()

@@ -2,59 +2,82 @@ package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.os.bundleOf
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.viewpager.widget.ViewPager
-import br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters.HeroiViewPagerAdapter
+import androidx.fragment.app.viewModels
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
-import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.FragmentHeroiBiografiaBinding
 import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.FragmentHeroiViewPagerBinding
+import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toast
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.tryToLoadImage
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters.HeroiViewPagerAdapter
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.HeroiViewModel
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.Result
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.vo.HeroiVO
-import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.launch
 
 class HeroiViewPagerFragment : Fragment(R.layout.fragment_heroi_view_pager) {
 
-    private lateinit var viewPagerBinding: FragmentHeroiViewPagerBinding
+    private lateinit var binding: FragmentHeroiViewPagerBinding
+    private val viewModel by viewModels<HeroiViewModel>()
 
-    private val heroi: HeroiVO? by lazy {
-        arguments?.getSerializable(HEROI_KEY)?.let { it as HeroiVO}
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.fetchCharacterById(requireContext())
         setupViews()
+        setupObservers()
 
     }
 
     private fun setupViews() {
         configuraViewPager()
         configuraTabLayout()
+
+    }
+
+    private fun setupObservers() {
+        viewModel.character.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Loading -> showLoading()
+                is Result.Error -> showError()
+                is Result.Success -> showContent(result.data)
+            }
+        }
     }
 
     private fun configuraViewPager() {
-        viewPagerBinding = FragmentHeroiViewPagerBinding.bind(requireView())
+        binding = FragmentHeroiViewPagerBinding.bind(requireView())
         val heroiAdapter = HeroiViewPagerAdapter(fragmentManager = childFragmentManager)
         val heroiBiografia = HeroiBiografiaFragment.criar()
         val heroiFilmes = HeroiFilmesFragment.criar()
         heroiAdapter.addFragment(heroiBiografia, "Biografia")
         heroiAdapter.addFragment(heroiFilmes, "Filmes")
-        viewPagerBinding.heroiViewPager.adapter = heroiAdapter
-        viewPagerBinding.heroiImagemCapa.tryToLoadImage(heroi?.image)
+        binding.heroiViewPager.adapter = heroiAdapter
+
     }
 
     private fun configuraTabLayout() {
-        viewPagerBinding.heroiTabLayout.setupWithViewPager(
-            viewPagerBinding.heroiViewPager)
+        binding.heroiTabLayout.setupWithViewPager(
+            binding.heroiViewPager)
     }
 
-    companion object {
-        private const val HEROI_KEY = "heroi"
-        fun buildBundle(heroi: HeroiVO) = bundleOf(HEROI_KEY to heroi)
+
+    private fun showContent(character : HeroiVO) {
+        updateLoadingView(false)
+        binding.heroiImagemCapa.tryToLoadImage(character.image)
+    }
+
+    private fun showError() {
+        updateLoadingView(false)
+        requireContext().toast("Something went wrong, please try again.")
+    }
+
+    private fun showLoading() {
+        updateLoadingView(true)
+    }
+
+    private fun updateLoadingView(isLoadingVisible: Boolean) {
+        binding.heroImgProgressbar.isVisible = isLoadingVisible
     }
 
 }

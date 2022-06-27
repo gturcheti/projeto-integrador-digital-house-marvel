@@ -7,7 +7,7 @@ import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
 import br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao.UsuarioDao
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
 import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.dataStore
+import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.userDataStore
 import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.LoginActivity
 
@@ -18,7 +18,7 @@ class MainViewModel {
 
 
     suspend fun isUserLoggedIn(context: Context) {
-        context.dataStore.data.collect { preferences ->
+        context.userDataStore.data.collect { preferences ->
             preferences[usuarioLogadoPreferences]?.let { usuarioEmail ->
 
             } ?: context.vaiPara(LoginActivity::class.java)
