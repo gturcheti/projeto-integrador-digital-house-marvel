@@ -5,7 +5,8 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/avengers_tower">
+    android:background="@drawable/avengers_tower"
+    tools:ignore="MissingClass">
 
 
     <Button
@@ -35,6 +36,6 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_login_24" />
+        app:srcCompat="@drawable/avengers_tower" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
