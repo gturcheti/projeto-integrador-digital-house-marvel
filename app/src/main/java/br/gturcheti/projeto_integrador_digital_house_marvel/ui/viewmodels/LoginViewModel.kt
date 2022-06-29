@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel : ViewModel() {
 
     private val _userLogged: MutableLiveData<Usuario> = MutableLiveData()
+
     val userLogged: LiveData<Usuario> = _userLogged
 
     fun autentica(context: Context, usuarioEmail: String, senha: String) {
