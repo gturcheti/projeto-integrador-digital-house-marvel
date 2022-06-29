@@ -3,7 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-
+    apply plugin: 'com.android.application'
+    apply plugin: 'com.google.gms.google-services'
 }
 
 android {
@@ -40,14 +41,11 @@ android {
     }
     namespace 'br.gturcheti.projeto_integrador_digital_house_marvel'
 }
-    apply plugin: 'com.android.application'
-    apply plugin: 'com.google.gms.google-services'
 
 dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
-    implementation 'com.google.firebase:firebase-auth'
-    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 
     implementation 'androidx.core:core-ktx:1.8.0'
