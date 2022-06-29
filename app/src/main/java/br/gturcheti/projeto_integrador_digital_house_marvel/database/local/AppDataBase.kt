@@ -27,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
             return db ?: Room.databaseBuilder(
                 context,
                 AppDatabase::class.java,
-                "orgs.db"
+                "marvelapp.db"
             ).build().also {
                 db = it
             }

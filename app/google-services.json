@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "256341848112",
-    "project_id": "projetointegradormarveldh",
-    "storage_bucket": "projetointegradormarveldh.appspot.com"
+    "project_number": "112999840537",
+    "project_id": "pi-marvel-dh",
+    "storage_bucket": "pi-marvel-dh.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:256341848112:android:7b51365d3907f9b3c5bdf5",
+        "mobilesdk_app_id": "1:112999840537:android:be1f98447ed4669c306388",
         "android_client_info": {
           "package_name": "br.gturcheti.projeto_integrador_digital_house_marvel"
         }
       },
       "oauth_client": [
         {
-          "client_id": "256341848112-iuopb0tf4a7a76mccpp3ob5p2rkgfbvv.apps.googleusercontent.com",
+          "client_id": "112999840537-9tcn1dv774ehne3rej1f3ta69dfsniig.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDKrk3Q5VKAKAXbTxY2KTrbL_Vmz8-D_jA"
+          "current_key": "AIzaSyDOPxo8GwasOegWd0AFRdPdox7gjggVujI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "256341848112-iuopb0tf4a7a76mccpp3ob5p2rkgfbvv.apps.googleusercontent.com",
+              "client_id": "112999840537-9tcn1dv774ehne3rej1f3ta69dfsniig.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
