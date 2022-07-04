@@ -3,6 +3,7 @@ package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.datastore.preferences.core.edit
 import androidx.fragment.app.Fragment
@@ -28,7 +29,7 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchHerois()
+        viewModel.fetchHeroList()
         setupViews()
         setupObservers()
     }
@@ -36,7 +37,25 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
     private fun setupViews() {
         binding = FragmentHeroiRecyclerViewBinding.bind(requireView())
         with(binding) {
+
             rvHeroiLista.adapter = heroiAdapter
+
+            heroListSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+                override fun onQueryTextSubmit(queryName: String?): Boolean {
+                    heroListSearchView.clearFocus()
+                    viewModel.fetchHeroListOnQueryTextSubmit(queryName)
+                    return false
+                }
+
+                override fun onQueryTextChange(queryName: String?): Boolean {
+                    queryName.isNullOrEmpty().let { boo ->
+                        if (boo) viewModel.fetchHeroList()
+                        else viewModel.fetchHeroListOnQueryTextChange(queryName)
+                    }
+                    return false
+                }
+            })
         }
     }
 

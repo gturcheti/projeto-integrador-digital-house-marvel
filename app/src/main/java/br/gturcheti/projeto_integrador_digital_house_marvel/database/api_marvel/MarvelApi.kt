@@ -21,6 +21,24 @@ interface MarvelApi {
         @Query("offset") offset:String
     ) : Response
 
+    @GET("v1/public/characters?apikey=${BuildConfig.MARVEL_API_PUBLICKEY}")
+    suspend fun fetchCharactersListByNameStartsWith (
+        @Query("ts") ts :Long,
+        @Query("hash") hash: String,
+        @Query("limit") limit: String,
+        @Query("offset") offset:String,
+        @Query("nameStartsWith") queryName :String,
+    ) : Response
+
+    @GET("v1/public/characters?apikey=${BuildConfig.MARVEL_API_PUBLICKEY}")
+    suspend fun fetchCharactersNameListByName (
+        @Query("ts") ts :Long,
+        @Query("hash") hash: String,
+        @Query("limit") limit: String,
+        @Query("offset") offset:String,
+        @Query("name") queryName :String,
+    ) : Response
+
     @GET("v1/public/characters/{id}?apikey=${BuildConfig.MARVEL_API_PUBLICKEY}")
     suspend fun fetchCharactersById (
         @Path("id") id: String,

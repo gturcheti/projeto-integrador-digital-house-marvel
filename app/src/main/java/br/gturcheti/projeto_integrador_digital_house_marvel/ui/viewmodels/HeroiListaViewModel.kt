@@ -16,28 +16,66 @@ class HeroiListaViewModel : ViewModel() {
     val URL = "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
 
     private val repository: MarvelApiRepository = MarvelApiRepository()
+
     private val _heroItem: MutableLiveData<Result<List<HeroiVO>>> = MutableLiveData()
     val heroItem: LiveData<Result<List<HeroiVO>>> = _heroItem
 
-    fun fetchHerois() {
-        _heroItem.value = Result.Loading
 
+    fun fetchHeroList() {
+        _heroItem.value = Result.Loading
         viewModelScope.launch {
             try {
-                val response = repository.fetchCharactersList("0")
-                val filter = response.data.results.filter { item -> filterCharacters(item = item) }
-                val vo = filter.map { heroiDTO ->
-                    HeroiVO(
-                        id = heroiDTO.id.toString(),
-                        name = heroiDTO.name,
-                        description = heroiDTO.description,
-                        image = "${heroiDTO.image.path.toHttps()}" + "/standard_fantastic" + ".${heroiDTO.image.extension}"
-                    )
+                repository.fetchCharactersList("0").let { response ->
+                    val vo = mapCharacter(response.data.results)
+                    _heroItem.value = Result.Success(vo)
                 }
-                _heroItem.value = Result.Success(vo)
             } catch (ex: HttpException) {
                 _heroItem.value = Result.Error
             }
+        }
+    }
+
+    fun fetchHeroListOnQueryTextChange(queryName: String?) {
+        _heroItem.value = Result.Loading
+        viewModelScope.launch {
+            queryName?.let { query ->
+                try {
+                    repository.fetchCharactersListByNameStartsWith(query).let { response ->
+                        val vo = mapCharacter(response.data.results)
+                        _heroItem.value = Result.Success(vo)
+                    }
+                } catch (ex: HttpException) {
+                    _heroItem.value = Result.Error
+                }
+            }
+        }
+    }
+
+    fun fetchHeroListOnQueryTextSubmit(queryName: String?) {
+        _heroItem.value = Result.Loading
+        viewModelScope.launch {
+            queryName?.let { query ->
+                try {
+                    repository.fetchCharactersListbyName(query).let { response ->
+                        val vo = mapCharacter(response.data.results)
+                        _heroItem.value = Result.Success(vo)
+                    }
+                } catch (ex: HttpException) {
+                    _heroItem.value = Result.Error
+                }
+            }
+        }
+    }
+
+    private fun mapCharacter(list: List<CharacterDTO>): List<HeroiVO> {
+        val filter = list.filter { item -> filterCharacters(item = item) }
+        return filter.map { heroiDTO ->
+            HeroiVO(
+                id = heroiDTO.id.toString(),
+                name = heroiDTO.name,
+                description = heroiDTO.description,
+                image = "${heroiDTO.image.path.toHttps()}" + "/standard_fantastic" + ".${heroiDTO.image.extension}"
+            )
         }
     }
 
@@ -48,7 +86,5 @@ class HeroiListaViewModel : ViewModel() {
                 && item.description.isNotEmpty()
 
     }
-
-
 
 }

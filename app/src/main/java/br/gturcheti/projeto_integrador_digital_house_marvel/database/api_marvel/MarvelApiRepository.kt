@@ -9,7 +9,7 @@ class MarvelApiRepository {
 
     private val api = marvelapi
 
-    suspend fun fetchCharactersList(offset:String): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersList(offset: String): Response = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersList(
             ts,
@@ -19,7 +19,29 @@ class MarvelApiRepository {
         )
     }
 
-    suspend fun fetchCharactersById(id:String): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersListByNameStartsWith(queryName: String): Response = withContext(Dispatchers.IO) {
+        val ts = System.currentTimeMillis()
+        api.fetchCharactersListByNameStartsWith(
+            ts = ts,
+            hash = toHash(ts),
+            limit = "100",
+            offset = "0",
+            queryName = queryName.lowercase(),
+        )
+    }
+
+    suspend fun fetchCharactersListbyName(queryName: String): Response = withContext(Dispatchers.IO) {
+        val ts = System.currentTimeMillis()
+        api.fetchCharactersNameListByName(
+            ts = ts,
+            hash = toHash(ts),
+            limit = "100",
+            offset = "0",
+            queryName = queryName.lowercase(),
+        )
+    }
+
+    suspend fun fetchCharactersById(id: String): Response = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersById(
             id,

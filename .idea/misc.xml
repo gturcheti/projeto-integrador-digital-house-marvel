@@ -6,6 +6,7 @@
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/drawable/ic_baseline_home_red.xml" value="0.1215" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/drawable/ic_baseline_list_red.xml" value="0.1215" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.2055" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/drawable/search_view_bg.xml" value="0.2445" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/font/rubik.xml" value="0.22777777777777777" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/activity_gameplay.xml" value="0.2609375" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/activity_heroi.xml" value="0.2609375" />
@@ -13,12 +14,17 @@
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/activity_usuario_cadastro.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/fragment_heroi_biografia.xml" value="0.3546875" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/fragment_heroi_filmes.xml" value="0.3546875" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/fragment_heroi_recycler_view.xml" value="0.3546875" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/fragment_heroi_view_pager.xml" value="0.3546875" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/gamecard_item.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_activity.xml" value="0.11354166666666667" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_fragment_biografia.xml" value="0.24660633484162897" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_fragment_filmes.xml" value="0.2609375" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_fragment_view_pager.xml" value="0.1796875" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/heroi_recycler_item.xml" value="0.5309352517985612" />
+        <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/layout/recycler_item_heroi.xml" value="0.3546875" />
         <entry key="..\:/AndroidStudioProjects/EstudosDH/projetointegradordigitalhousemarvel/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
         <entry key="..\:/Users/ton/projeto-integrador-digital-house-marvel/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
