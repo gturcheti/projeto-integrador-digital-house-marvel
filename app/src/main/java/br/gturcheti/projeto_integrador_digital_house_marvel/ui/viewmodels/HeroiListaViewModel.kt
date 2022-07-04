@@ -13,7 +13,7 @@ import retrofit2.HttpException
 
 class HeroiListaViewModel : ViewModel() {
 
-    val URL = "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+    val IMG_NOT_AVAIBLE = "image_not_available"
 
     private val repository: MarvelApiRepository = MarvelApiRepository()
 
@@ -25,8 +25,8 @@ class HeroiListaViewModel : ViewModel() {
         _heroItem.value = Result.Loading
         viewModelScope.launch {
             try {
-                repository.fetchCharactersList("0").let { response ->
-                    val vo = mapCharacter(response.data.results)
+                repository.fetchCharactersList().let { response ->
+                    val vo = mapCharacters(response.data.results)
                     _heroItem.value = Result.Success(vo)
                 }
             } catch (ex: HttpException) {
@@ -41,7 +41,7 @@ class HeroiListaViewModel : ViewModel() {
             queryName?.let { query ->
                 try {
                     repository.fetchCharactersListByNameStartsWith(query).let { response ->
-                        val vo = mapCharacter(response.data.results)
+                        val vo = mapCharacters(response.data.results)
                         _heroItem.value = Result.Success(vo)
                     }
                 } catch (ex: HttpException) {
@@ -57,7 +57,7 @@ class HeroiListaViewModel : ViewModel() {
             queryName?.let { query ->
                 try {
                     repository.fetchCharactersListbyName(query).let { response ->
-                        val vo = mapCharacter(response.data.results)
+                        val vo = mapCharacters(response.data.results)
                         _heroItem.value = Result.Success(vo)
                     }
                 } catch (ex: HttpException) {
@@ -67,20 +67,20 @@ class HeroiListaViewModel : ViewModel() {
         }
     }
 
-    private fun mapCharacter(list: List<CharacterDTO>): List<HeroiVO> {
-        val filter = list.filter { item -> filterCharacters(item = item) }
-        return filter.map { heroiDTO ->
-            HeroiVO(
-                id = heroiDTO.id.toString(),
-                name = heroiDTO.name,
-                description = heroiDTO.description,
-                image = "${heroiDTO.image.path.toHttps()}" + "/standard_fantastic" + ".${heroiDTO.image.extension}"
-            )
-        }
+    private fun mapCharacters(list: List<CharacterDTO>): List<HeroiVO> {
+        return list.filter { item -> filterCharacters(item = item) }
+            .map { heroiDTO ->
+                HeroiVO(
+                    id = heroiDTO.id.toString(),
+                    name = heroiDTO.name,
+                    description = heroiDTO.description,
+                    image = "${heroiDTO.image.path.toHttps()}" + "/standard_fantastic" + ".${heroiDTO.image.extension}"
+                )
+            }
     }
 
     private fun filterCharacters(item: CharacterDTO): Boolean {
-        return item.image.path != URL
+        return !item.image.path.contains(IMG_NOT_AVAIBLE)
                 && item.image.extension.isNotEmpty()
                 && item.name.isNotEmpty()
                 && item.description.isNotEmpty()
