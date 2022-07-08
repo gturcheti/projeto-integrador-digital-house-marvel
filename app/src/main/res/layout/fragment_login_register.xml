@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.view.activities.UsuarioCadastroActivity">
+        tools:context=".ui.view.fragments.LoginRegisterFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_email"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_usuario_cadastro_email"
+                android:id="@+id/fragment_login_register_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toBottomOf="@id/textInputLayout_email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_usuario_cadastro_nome"
+                android:id="@+id/fragment_login_register_nome_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nome"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@id/textInputlayout_nome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_usuario_cadastro_senha"
+                android:id="@+id/fragment_login_register_senha_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Senha"
@@ -71,7 +71,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/activity_usuario_cadastro_cadastrar_btn"
+            android:id="@+id/fragment_login_register_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

@@ -1,7 +1,7 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel
 
 import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.HashGenerator.toHash
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.Response
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.characters.ResponseCharacters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -9,7 +9,7 @@ class MarvelApiRepository {
 
     private val api = marvelapi
 
-    suspend fun fetchCharactersList(): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersList(): ResponseCharacters = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersList(
             ts,
@@ -19,7 +19,7 @@ class MarvelApiRepository {
         )
     }
 
-    suspend fun fetchCharactersListByNameStartsWith(queryName: String): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersListByNameStartsWith(queryName: String): ResponseCharacters = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersListByNameStartsWith(
             ts = ts,
@@ -30,7 +30,7 @@ class MarvelApiRepository {
         )
     }
 
-    suspend fun fetchCharactersListbyName(queryName: String): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersListbyName(queryName: String): ResponseCharacters = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersNameListByName(
             ts = ts,
@@ -41,7 +41,7 @@ class MarvelApiRepository {
         )
     }
 
-    suspend fun fetchCharactersById(id: String): Response = withContext(Dispatchers.IO) {
+    suspend fun fetchCharactersById(id: String): ResponseCharacters = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
         api.fetchCharactersById(
             id,

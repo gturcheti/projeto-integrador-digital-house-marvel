@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.MarvelApiRepository
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.CharacterDTO
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.characters.CharacterDTO
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toHttps
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.vo.HeroiVO
 import kotlinx.coroutines.launch

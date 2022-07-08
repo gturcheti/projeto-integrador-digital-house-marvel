@@ -11,11 +11,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginVertical="8dp"
         android:background="@drawable/search_view_bg"
         android:iconifiedByDefault="false"
         android:queryHint="Busque seu herói..."
-        app:layout_constraintBottom_toTopOf="@id/rv_heroi_lista"
+        app:layout_constraintBottom_toTopOf="@id/hero_list_progressbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,13 +24,14 @@
         android:id="@+id/hero_list_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:indeterminate="true"
         android:indeterminateTint="@color/marvel_red"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_heroi_lista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/hero_list_searchView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_heroi_lista"
@@ -42,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hero_list_searchView"
+        app:layout_constraintTop_toBottomOf="@id/hero_list_progressbar"
         tools:listitem="@layout/recycler_item_heroi" />
 
 

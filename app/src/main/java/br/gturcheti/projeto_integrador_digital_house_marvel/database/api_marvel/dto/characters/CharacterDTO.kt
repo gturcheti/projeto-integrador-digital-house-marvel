@@ -1,5 +1,6 @@
-package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto
+package br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.characters
 
+import br.gturcheti.projeto_integrador_digital_house_marvel.database.api_marvel.dto.thumbnail.ThumbnailDTO
 import com.google.gson.annotations.SerializedName
 
 data class CharacterDTO(

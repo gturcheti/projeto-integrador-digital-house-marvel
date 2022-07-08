@@ -19,6 +19,8 @@ import br.gturcheti.projeto_integrador_digital_house_marvel.ui.adapters.HeroiRec
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.HeroiListaViewModel
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.Result
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.vo.HeroiVO
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
@@ -29,7 +31,6 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchHeroList()
         setupViews()
         setupObservers()
     }
@@ -41,6 +42,7 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
             rvHeroiLista.adapter = heroiAdapter
 
             heroListSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                private var job: Job? = null
 
                 override fun onQueryTextSubmit(queryName: String?): Boolean {
                     heroListSearchView.clearFocus()
@@ -49,9 +51,13 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
                 }
 
                 override fun onQueryTextChange(queryName: String?): Boolean {
+                    job?.cancel()
                     queryName.isNullOrEmpty().let { boo ->
-                        if (boo) viewModel.fetchHeroList()
-                        else viewModel.fetchHeroListOnQueryTextChange(queryName)
+                        job = lifecycleScope.launch {
+                            delay(750)
+                            if (boo) viewModel.fetchHeroList()
+                            else viewModel.fetchHeroListOnQueryTextChange(queryName)
+                        }
                     }
                     return false
                 }
@@ -82,9 +88,8 @@ class HeroiListaFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
                     preferences[characterIdPreference] = character.id
                     Log.i("PREFERENCES", "onItemClicked: ${preferences}")
                 }
-
+                findNavController().navigate(R.id.action_heroiRV_to_heroiVP)
             }
-            findNavController().navigate(R.id.action_heroiRV_to_heroiVP)
         }
     }
 

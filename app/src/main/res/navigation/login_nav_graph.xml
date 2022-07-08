@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav_graph"
+    app:startDestination="@id/loginMainFragment">
+
+    <fragment
+        android:id="@+id/loginMainFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.LoginMainFragment"
+        android:label="LoginMainFragment"
+        tools:layout="@layout/fragment_login_main">
+        <action
+            android:id="@+id/action_loginMain_to_loginRegister"
+            app:destination="@id/loginRegisterFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginRegisterFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.LoginRegisterFragment"
+        android:label="LoginRegisterFragment"
+        tools:layout="@layout/fragment_login_register">
+        <action
+            android:id="@+id/action_loginRegister_to_loginMain"
+            app:destination="@id/loginMainFragment" />
+    </fragment>
+
+
+</navigation>

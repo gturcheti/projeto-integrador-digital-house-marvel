@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.HeroiActivity" />
-        <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.UsuarioCadastroActivity" />
         <activity android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.LoginActivity" />
 
         <meta-data

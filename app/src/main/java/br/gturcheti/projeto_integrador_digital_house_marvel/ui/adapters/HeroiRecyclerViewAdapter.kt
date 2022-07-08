@@ -21,7 +21,7 @@ class HeroiRecyclerViewAdapter(
         fun bind(character: HeroiVO) {
             with(binding) {
                 heroiRecyclerItemNomeHeroi.text = character.name
-                Log.i("HEROY_RECYCLER_ITEM", "IMG_URL = ${character.image}")
+                heroiRecyclerItemNomePersonagem.text = character.description
                 heroiRecyclerItemImg.tryToLoadImage(character.image)
                 itemView.setOnClickListener { onItemClicked.invoke(character) }
             }

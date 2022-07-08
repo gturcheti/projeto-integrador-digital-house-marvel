@@ -53,7 +53,7 @@ dependencies {
 
     def room_version = "2.4.2"
     def lifecycle_version = "2.4.1"
-    def fragment_version = "1.4.1"
+    def fragment_version = "1.5.0"
     def datastore_version = "1.0.0"
     def nav_version = "2.4.2"
 
@@ -87,6 +87,9 @@ dependencies {
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+    // Testing Fragment
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
     // Retrofit
     def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -110,5 +113,13 @@ dependencies {
     //BoM FIREBASE
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+
+    //AndroidX Test
+    def androidXTestVersion = "1.4.0"
+    // Core library
+    androidTestImplementation("androidx.test:core:$androidXTestVersion")
+    androidTestImplementation("androidx.test:core-ktx:$androidXTestVersion")
+
 
 }
