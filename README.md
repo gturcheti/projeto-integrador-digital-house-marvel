@@ -106,6 +106,10 @@ O botão "explore" direciona o usuário à interface de heróis.
 
 ![LoginFragment](https://user-images.githubusercontent.com/94029140/180088230-9de52fd8-8e93-4b24-9831-ddf991626156.jpg)
 
+Essa é a tela para autenticação e acesso ao aplicativo. A autenticação pode ser realizada de duas formas: fornecendo e-mail e senha, ou utilizando o cadastro do google. 
+
+Caso o usuário não possua cadastro no aplicativo e nem conta no google, basta clicar no botão de registro para cadastrar-se.
+
 
 **RegisterFragment**
 
@@ -153,9 +157,9 @@ Segue algumas dicas do que pode ser aprimorado:
 
 
 ## :man_office_worker: Autores do projeto
-- [Gabriel Saraiva Turcheti](https://www.linkedin.com/in/gturcheti/)
 - [Emanuel Filipe Gregui Mendes](http://www.linkedin.com/in/emanuel--filipe)
+- [Gabriel Saraiva Turcheti](https://www.linkedin.com/in/gturcheti/)
 - José Ivaldo Junior,
-- Washington 
+- [Washington Caio Venancio](https://www.linkedin.com/in/washington-caio-venancio-0569b796)
 
 ---
