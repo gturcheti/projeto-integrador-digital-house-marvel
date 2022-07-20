@@ -38,7 +38,7 @@ class HeroListViewModel : ViewModel() {
                         val vo = mapCharacters(response.data.results)
                         _heroItem.value = Result.Success(vo)
                     }
-                } catch (ex: HttpException) {
+                } catch (ex: Exception) {
                     _heroItem.value = Result.Error
                 }
             }
@@ -54,7 +54,7 @@ class HeroListViewModel : ViewModel() {
                         val vo = mapCharacters(response.data.results)
                         _heroItem.value = Result.Success(vo)
                     }
-                } catch (ex: HttpException) {
+                } catch (ex: Exception) {
                     _heroItem.value = Result.Error
                 }
             }

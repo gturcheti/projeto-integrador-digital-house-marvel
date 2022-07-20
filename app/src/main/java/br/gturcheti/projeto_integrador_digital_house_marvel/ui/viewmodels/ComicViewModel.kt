@@ -37,7 +37,7 @@ class ComicViewModel : ViewModel() {
                     val vo = mapComics(response.data.results)
                     _comicItem.value = Result.Success(vo)
                 }
-            } catch (ex: HttpException) {
+            } catch (ex: Exception) {
                 _comicItem.value = Result.Error
             }
         }
@@ -67,7 +67,6 @@ class ComicViewModel : ViewModel() {
         var uri = "https://marvel.com"
         dto.urls.firstOrNull()?.let {
             uri = it.url.toHttps()
-            Log.i("HERO_VIEW_MODEL", "getUrlCharacter: $uri")
         }
         return uri
     }

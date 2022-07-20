@@ -1,6 +1,7 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -54,20 +55,27 @@ class HeroComicsFragment : Fragment(R.layout.fragment_hero_comics) {
     }
 
     private fun showError() {
-        requireContext().toast("Error")
+        updateLoadingView(false)
+        updateErrorView(true)
     }
 
     private fun showContent(comics: List<ComicVO>) {
         updateLoadingView(false)
+        updateErrorView(false)
         comicAdapter.updateComics(comics)
     }
 
     private fun showLoading() {
         updateLoadingView(true)
+        updateErrorView(false)
     }
 
     private fun updateLoadingView(isLoadingVisible: Boolean) {
         binding.comicListProgressbar.isVisible = isLoadingVisible
+    }
+
+    private fun updateErrorView(isErrorVisible: Boolean) {
+        binding.comicWarningTv.isVisible = isErrorVisible
     }
 
     companion object {

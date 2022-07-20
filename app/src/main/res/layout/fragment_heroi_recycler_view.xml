@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <SearchView
         android:id="@+id/hero_list_searchView"
         android:layout_width="0dp"
@@ -14,7 +13,7 @@
         android:layout_marginVertical="8dp"
         android:background="@drawable/search_view_bg"
         android:iconifiedByDefault="false"
-        android:queryHint="Busque seu herói..."
+        android:queryHint="Find your hero..."
         app:layout_constraintBottom_toTopOf="@id/hero_list_progressbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +26,22 @@
         android:layout_marginHorizontal="16dp"
         android:indeterminate="true"
         android:indeterminateTint="@color/marvel_red"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/hero_warning_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hero_list_searchView" />
+
+    <TextView
+        android:id="@+id/hero_warning_tv"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Search list is not avaible for now (check your network status), see your favorites heroes below:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/rv_hero_list"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hero_list_progressbar"
+        app:layout_constraintTop_toBottomOf="@id/hero_warning_tv"
         tools:listitem="@layout/recycler_item_hero" />
 
 

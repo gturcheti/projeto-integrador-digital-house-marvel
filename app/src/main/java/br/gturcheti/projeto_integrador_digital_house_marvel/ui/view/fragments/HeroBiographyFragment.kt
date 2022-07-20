@@ -71,7 +71,7 @@ class HeroBiographyFragment : Fragment(R.layout.fragment_hero_biography) {
 
     private fun updateViews(character: HeroVO) {
         with(binding) {
-            heroiFragmentNomeHeroi.text = character.name
+            heroFragmentCharacterName.text = character.name
             heroiFragmentDescricao.text = character.description
         }
     }

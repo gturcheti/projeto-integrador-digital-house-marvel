@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="4dp"
+    android:layout_marginVertical="8dp"
     android:backgroundTint="@color/black"
     android:clickable="true"
     app:cardElevation="8dp">
@@ -50,7 +50,6 @@
             android:layout_height="4dp"
             android:background="@color/marvel_red"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/comic_item_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

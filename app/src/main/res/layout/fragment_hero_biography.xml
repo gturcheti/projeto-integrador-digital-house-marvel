@@ -22,14 +22,15 @@
             app:tint="@color/gray" />
 
         <TextView
-            android:id="@+id/heroi_fragment_nome_heroi"
-            android:layout_width="match_parent"
+            android:id="@+id/hero_fragment_character_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rubik"
             android:textColor="@color/marvel_red"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hero_fragment_share_btn"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nome do Heroi" />
 
@@ -41,16 +42,16 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/rubik"
             android:textColor="@color/gray"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/heroi_fragment_nome_heroi"
+            app:layout_constraintTop_toBottomOf="@id/hero_fragment_character_name"
             tools:text="BIOGRAFIA DO HEROI" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/hero_fragment_saiba_mais_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginVertical="8dp"
+            android:layout_marginVertical="16dp"
             android:background="@android:color/transparent"
             android:elevation="0dp"
             android:text="click here for more"

@@ -43,7 +43,7 @@
                 android:id="@+id/fragment_login_email_it"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Digite seu e-mail"
+                android:hint="E-mail Adress"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -63,7 +63,7 @@
                 android:id="@+id/fragment_login_password_it"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Digite sua senha"
+                android:hint="Password"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +75,7 @@
             android:layout_margin="20dp"
             android:backgroundTint="@color/marvel_red"
             android:clickable="true"
-            android:text="entrar"
+            android:text="login"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@android:color/transparent"
-            android:text="CADASTRAR"
+            android:text="join for free"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_login_logar_btn" />
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
-            android:text="ou faça login com google:"
+            android:text="or sign in with google:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_login_registrar_btn" />

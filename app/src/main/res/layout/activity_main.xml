@@ -15,7 +15,7 @@
         android:backgroundTint="@color/white"
         android:clickable="true"
         android:fontFamily="@font/rubik"
-        android:text="EXPLORAR"
+        android:text="EXPLORE"
         android:textColor="@color/marvel_red"
         android:textStyle="bold"
         app:icon="@drawable/ic_explore"

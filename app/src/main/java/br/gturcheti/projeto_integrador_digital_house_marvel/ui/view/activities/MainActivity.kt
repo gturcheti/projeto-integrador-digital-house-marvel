@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUserInfo() {
-        toast("Bem-Vindo")
+        toast("Welcome")
     }
 
     fun setupViews() {

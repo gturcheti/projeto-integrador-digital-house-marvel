@@ -82,6 +82,7 @@ class HeroListFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
 
     private fun showContent(herois: List<HeroVO>) {
         updateLoadingView(false)
+        updateErrorView(false)
         heroiAdapter.atualizaHerois(herois)
     }
 
@@ -100,15 +101,20 @@ class HeroListFragment : Fragment(R.layout.fragment_heroi_recycler_view) {
 
     private fun showError() {
         updateLoadingView(false)
-        requireContext().toast("Something went wrong, please try again.")
+        updateErrorView(true)
     }
 
     private fun showLoading() {
+        updateErrorView(false)
         updateLoadingView(true)
     }
 
     private fun updateLoadingView(isLoadingVisible: Boolean) {
         binding.heroListProgressbar.isVisible = isLoadingVisible
+    }
+
+    private fun updateErrorView(isErrorVisible: Boolean) {
+        binding.heroWarningTv.isVisible = isErrorVisible
     }
 
 }
