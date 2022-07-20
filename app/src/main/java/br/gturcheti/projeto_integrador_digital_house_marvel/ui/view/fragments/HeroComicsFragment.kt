@@ -3,6 +3,7 @@ package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -40,7 +41,14 @@ class HeroComicsFragment : Fragment(R.layout.fragment_hero_comics) {
 
     fun onItemClicked(comic: ComicVO) {
         comic.let {
-
+            AlertDialog.Builder(requireContext())
+                .setMessage("O link será aberto em seu navegador, confirmar a operação?")
+                .setPositiveButton("Confirmar") { _, _ ->
+                    viewModel.seeMoreOnMarvelSiteIntent(requireContext(), it.url)
+                }
+                .setNegativeButton("Cancelar") { _, _ ->
+                }
+                .show()
         }
     }
 

@@ -1,6 +1,8 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -80,6 +82,11 @@ class ComicViewModel : ViewModel() {
                 }
             }
         }
+    }
+
+    fun seeMoreOnMarvelSiteIntent(context: Context, uri: String) {
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        context.startActivity(intent)
     }
 
 }
