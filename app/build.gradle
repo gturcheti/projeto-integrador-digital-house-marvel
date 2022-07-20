@@ -114,12 +114,21 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
+    //Google Auth with Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
+    //Realtime Database
+    implementation 'com.google.firebase:firebase-database-ktx'
 
     //AndroidX Test
     def androidXTestVersion = "1.4.0"
+
     // Core library
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("androidx.test:core-ktx:$androidXTestVersion")
 
 
 }
+
+apply plugin: 'com.google.gms.google-services'

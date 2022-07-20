@@ -28,13 +28,13 @@
         android:indeterminate="true"
         android:indeterminateTint="@color/marvel_red"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/rv_heroi_lista"
+        app:layout_constraintBottom_toTopOf="@id/rv_hero_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hero_list_searchView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_heroi_lista"
+        android:id="@+id/rv_hero_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hero_list_progressbar"
-        tools:listitem="@layout/recycler_item_heroi" />
+        tools:listitem="@layout/recycler_item_hero" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

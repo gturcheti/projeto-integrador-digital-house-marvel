@@ -1,30 +1,48 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import br.gturcheti.projeto_integrador_digital_house_marvel.R
+import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.ActivityMainBinding
+import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toast
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-    
+
+    private val viewModel: MainViewModel by viewModels()
+
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setupListeners()
+        setContentView(binding.root)
+        setupViews()
+        setupObservers()
     }
 
-    fun setupListeners() {
-
-        findViewById<Button>(R.id.main_activity_lista_heroi_btn).setOnClickListener{
-            vaiPara(HeroiActivity::class.java)
+    private fun setupObservers() {
+        viewModel.userLogged.observe(this){boo ->
+            if (boo) showUserInfo()
+            else vaiPara(LoginActivity::class.java)
         }
-
-        findViewById<ImageButton>(R.id.main_activity_login_btn).setOnClickListener {
-            vaiPara(LoginActivity::class.java)
-        }
-
     }
 
+    private fun showUserInfo() {
+        toast("Bem-Vindo")
+    }
+
+    fun setupViews() {
+        viewModel.checkForUsers(this)
+        with(binding) {
+            mainActivityLoginBtn.setOnClickListener {
+                viewModel.signOut(this@MainActivity)
+            }
+            mainActivityListaHeroiBtn.setOnClickListener {
+                vaiPara(HeroActivity::class.java)
+            }
+        }
+    }
 }

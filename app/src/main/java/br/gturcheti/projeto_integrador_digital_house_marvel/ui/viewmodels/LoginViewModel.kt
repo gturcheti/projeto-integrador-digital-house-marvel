@@ -1,49 +1,71 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels
 
+import android.app.Activity
 import android.content.Context
-import android.util.Log
+import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.AppDatabase
-import br.gturcheti.projeto_integrador_digital_house_marvel.database.local.dao.UsuarioDao
-import br.gturcheti.projeto_integrador_digital_house_marvel.model.Usuario
+import br.gturcheti.projeto_integrador_digital_house_marvel.data.AppDatabase
+import br.gturcheti.projeto_integrador_digital_house_marvel.data.UserRepository
+import br.gturcheti.projeto_integrador_digital_house_marvel.data.local.dao.CharacterDAO
+import br.gturcheti.projeto_integrador_digital_house_marvel.data.local.dao.UserDAO
+import br.gturcheti.projeto_integrador_digital_house_marvel.data.local.entities.User
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthCredential
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private val _userLogged: MutableLiveData<Usuario> = MutableLiveData()
-    val userLogged: LiveData<Usuario> = _userLogged
+    val GOOGLE_REQUEST_CODE = 1001
 
-    private val _novoUsuario: MutableLiveData<Usuario> = MutableLiveData()
-    val novoUsuario: LiveData<Usuario> = _novoUsuario
+    private val repository = UserRepository()
 
+    private val _userSignIn: MutableLiveData<Result<Unit>> = MutableLiveData()
+    val userSignIn: LiveData<Result<Unit>> = _userSignIn
 
+    private val _newUser: MutableLiveData<Result<Unit>> = MutableLiveData()
+    val newUser: LiveData<Result<Unit>> = _newUser
 
-    fun autentica(context: Context, usuarioEmail: String, senha: String) {
+    fun signInWithGoogleIntent(activity: Activity) : Intent {
+        return GoogleSignIn.getClient(activity,repository.gso).signInIntent
+    }
+
+    fun loginAuth(email: String, password: String) {
+        _userSignIn.value = Result.Loading
         viewModelScope.launch {
-            getDao(context).autentica(usuarioEmail, senha)?.let { usuarioAutenticado ->
-                _userLogged.value = usuarioAutenticado
-                Log.i("AUTENTICA", "$_userLogged")
+            repository.signInWithAuth(email, password).let { boo ->
+                if (boo) _userSignIn.value = Result.Success(Unit)
+                else _userSignIn.value = Result.Error
             }
         }
     }
 
-    fun criaUsuario(usuarioEmail: String, usuarioNome: String, senha: String) {
-        _novoUsuario.value = Usuario(usuarioEmail, usuarioNome, senha)
-    }
-
-    fun cadastraUsuario(context:Context) {
+    fun loginGoogle(firebaseCredencial: AuthCredential, task: Task<GoogleSignInAccount>) {
+        _userSignIn.value = Result.Loading
         viewModelScope.launch {
-            _novoUsuario.value?.let { usuario ->
-                getDao(context).salva(usuario)
+            repository.siginInWithGoogleOnFirebase(firebaseCredencial).let { boo ->
+                if (boo) repository.handleSignInResult(task).let { boo ->
+                    if (boo) _userSignIn.value = Result.Success(Unit)
+                    else _userSignIn.value = Result.Error
+                }
+                else _userSignIn.value = Result.Error
             }
         }
     }
 
-    private fun getDao(context: Context) : UsuarioDao {
-        return AppDatabase.instancia(context).usuarioDao()
+    fun createUser(user: User, password: String) {
+        _newUser.value = Result.Loading
+        viewModelScope.launch {
+            repository.createUser(user, password).let { boo ->
+                if (boo) {
+                    _newUser.value = Result.Success(Unit)
+                }
+                else _newUser.value = Result.Error
+            }
+        }
     }
-
 }

@@ -16,11 +16,11 @@
         android:layout_margin="20dp">
 
         <ImageView
-            android:id="@+id/activity_login_marvel_logo"
+            android:id="@+id/fragment_login_marvel_logo"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@id/login_activity_usuario_textField"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_email_textField"
             app:layout_constraintCircleRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
             tools:layout_editor_absoluteX="0dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_activity_usuario_textField"
+            android:id="@+id/fragment_login_email_textField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -37,19 +37,19 @@
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_login_marvel_logo">
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_marvel_logo">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_login_email"
+                android:id="@+id/fragment_login_email_it"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Usuario"
+                android:hint="Digite seu e-mail"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_activity_senha_textField"
+            android:id="@+id/fragment_login_password_textField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -57,30 +57,29 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_activity_usuario_textField">
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_email_textField">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_login_senha"
+                android:id="@+id/fragment_login_password_it"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Senha"
+                android:hint="Digite sua senha"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/activity_login_logar_btn"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:backgroundTint="@color/marvel_red"
-            android:text="entrar"
             android:clickable="true"
+            android:text="entrar"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_activity_senha_textField" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_password_textField" />
 
         <Button
             android:id="@+id/activity_login_registrar_btn"
@@ -93,6 +92,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_login_logar_btn" />
+
+        <TextView
+            android:id="@+id/fragment_login_or_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:text="ou faça login com google:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_login_registrar_btn" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/fragment_login_google_sign_in_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_or_tv" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

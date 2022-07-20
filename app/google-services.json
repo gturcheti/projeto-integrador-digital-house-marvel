@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "112999840537",
+    "firebase_url": "https://pi-marvel-dh-default-rtdb.firebaseio.com",
     "project_id": "pi-marvel-dh",
     "storage_bucket": "pi-marvel-dh.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "112999840537-botuamu4t7hfi0jckqac0b2tajrkda6d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.gturcheti.projeto_integrador_digital_house_marvel",
+            "certificate_hash": "ac2948b3dc6b39e46909776e9ea14c54f31110b1"
+          }
+        },
         {
           "client_id": "112999840537-9tcn1dv774ehne3rej1f3ta69dfsniig.apps.googleusercontent.com",
           "client_type": 3

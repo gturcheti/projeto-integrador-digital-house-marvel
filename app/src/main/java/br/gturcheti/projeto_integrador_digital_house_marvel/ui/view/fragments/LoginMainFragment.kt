@@ -1,20 +1,20 @@
 package br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.datastore.preferences.core.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import br.gturcheti.projeto_integrador_digital_house_marvel.R
 import br.gturcheti.projeto_integrador_digital_house_marvel.databinding.FragmentLoginMainBinding
+import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.toast
 import br.gturcheti.projeto_integrador_digital_house_marvel.extensions.vaiPara
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.userDataStore
-import br.gturcheti.projeto_integrador_digital_house_marvel.preferences.usuarioLogadoPreferences
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.activities.MainActivity
 import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.LoginViewModel
-import kotlinx.coroutines.launch
+import br.gturcheti.projeto_integrador_digital_house_marvel.ui.viewmodels.Result
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginMainFragment : Fragment(R.layout.fragment_login_main) {
 
@@ -34,9 +34,16 @@ class LoginMainFragment : Fragment(R.layout.fragment_login_main) {
                 findNavController().navigate(R.id.action_loginMain_to_loginRegister)
             }
             activityLoginLogarBtn.setOnClickListener {
-                viewModel.autentica(requireContext(),
-                    activityLoginEmail.text.toString(),
-                    activityLoginSenha.text.toString())
+                viewModel.loginAuth(
+                    fragmentLoginEmailIt.text.toString(),
+                    fragmentLoginPasswordIt.text.toString()
+                )
+            }
+            fragmentLoginGoogleSignInBtn.setOnClickListener {
+                startActivityForResult(
+                    viewModel.signInWithGoogleIntent(requireActivity()),
+                    viewModel.GOOGLE_REQUEST_CODE
+                )
             }
 
         }
@@ -44,21 +51,28 @@ class LoginMainFragment : Fragment(R.layout.fragment_login_main) {
     }
 
     fun setupObservers() {
-        viewModel.userLogged.observe(viewLifecycleOwner) { usuarioLogado ->
-            usuarioLogado?.let {
-                lifecycleScope.launch {
-                    with(requireContext()) {
-                        userDataStore.edit { preferences ->
-                            preferences[usuarioLogadoPreferences] = usuarioLogado.email
-                            vaiPara(MainActivity::class.java)
-                            requireActivity().finish()
-                        }
-                    }
-                }
+        viewModel.userSignIn.observe(viewLifecycleOwner) {
+            when (it) {
+                is Result.Success -> onSuccess()
+                is Result.Error -> requireContext().toast("Algo deu errado")
             }
         }
     }
 
+    private fun onSuccess() {
+        with(requireContext()) {
+            vaiPara(MainActivity::class.java)
+            requireActivity().finish()
+        }
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == viewModel.GOOGLE_REQUEST_CODE) {
+            val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val credencial = GoogleAuthProvider.getCredential(accountTask.result.idToken,null)
+            viewModel.loginGoogle(credencial, accountTask)
+        }
+    }
 }
 

@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/heroiViewPagerFragment"
-        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiViewPagerFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroViewPagerFragment"
         android:label="HeroiViewPagerFragment"
-        tools:layout='@layout/fragment_heroi_view_pager'>
+        tools:layout='@layout/fragment_hero_view_pager'>
 
     </fragment>
     <fragment
         android:id="@+id/heroiListaFragment"
-        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroiListaFragment"
+        android:name="br.gturcheti.projeto_integrador_digital_house_marvel.ui.view.fragments.HeroListFragment"
         android:label="HeroiListaFragment"
         tools:layout='@layout/fragment_heroi_recycler_view'>
         <action
